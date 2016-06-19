@@ -4,7 +4,7 @@
 ;;
 ;; Author: Jacek Podkanski
 ;; URL: https://github.com/bigos/obvious-parentheses
-;; Package-Requires: ((emacs "24"))
+;; Package-Requires: ((emacs "24") (rainbow-delimiters ""))
 ;; Version: 0.1
 ;; Keywords: convenience, usability
 
