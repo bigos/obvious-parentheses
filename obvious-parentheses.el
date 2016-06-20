@@ -18,7 +18,7 @@
 
 ;; Quick start:
 ;; load rainbow-delimiters-mode
-;; run (colorize-brackets) or M-x colorize-brackets
+;; run (obvious-parentheses-colorize) or M-x obvious-parentheses-colorize
 ;;
 ;; For a detailed introduction see:
 ;; https://github.com/bigos/obvious-parentheses
@@ -29,7 +29,9 @@
 
 (require 'color)
 
-(defun hsl-to-hex (h s l)
+
+
+(defun obvious-parentheses-hsl-to-hex (h s l)
   "Convert H S L to hex colours."
   (let (rgb)
     (setq rgb (color-hsl-to-rgb h s l))
@@ -37,7 +39,7 @@
                       (nth 1 rgb)
                       (nth 2 rgb))))
 
-(defun bracket-colors ()
+(defun obvious-parentheses-bracket-colors ()
   "Calculate the bracket colours based on background."
   (let (hexcolors lightvals)
     (if (>= (color-distance  "white"
@@ -48,30 +50,28 @@
       (setq lightvals (list 0.35 0.30)))
 
      (dolist (n '(.71 .3 .11 .01))
-       (push (hsl-to-hex (+ n 0.0) 1.0 (nth 0 lightvals)) hexcolors))
+       (push (obvious-parentheses-hsl-to-hex (+ n 0.0) 1.0 (nth 0 lightvals)) hexcolors))
      (dolist (n '(.81 .49 .17 .05))
-       (push (hsl-to-hex (+ n 0.0) 1.0 (nth 1 lightvals)) hexcolors))
+       (push (obvious-parentheses-hsl-to-hex (+ n 0.0) 1.0 (nth 1 lightvals)) hexcolors))
     (reverse hexcolors)))
 
 ;;;###autoload
-(defun colorize-brackets ()
+(defun obvious-parentheses-colorize()
   "Apply my own colours to rainbow delimiters."
   (interactive)
   (require 'rainbow-delimiters)
   (custom-set-faces
    ;; or use (list-colors-display)
    `(rainbow-delimiters-depth-1-face ((t (:foreground "#888"))))
-   `(rainbow-delimiters-depth-2-face ((t (:foreground ,(nth 0 (bracket-colors))))))
-   `(rainbow-delimiters-depth-3-face ((t (:foreground ,(nth 1 (bracket-colors))))))
-   `(rainbow-delimiters-depth-4-face ((t (:foreground ,(nth 2 (bracket-colors))))))
-   `(rainbow-delimiters-depth-5-face ((t (:foreground ,(nth 3 (bracket-colors))))))
-   `(rainbow-delimiters-depth-6-face ((t (:foreground ,(nth 4 (bracket-colors))))))
-   `(rainbow-delimiters-depth-7-face ((t (:foreground ,(nth 5 (bracket-colors))))))
-   `(rainbow-delimiters-depth-8-face ((t (:foreground ,(nth 6 (bracket-colors))))))
-   `(rainbow-delimiters-depth-9-face ((t (:foreground ,(nth 7 (bracket-colors))))))
-   `(rainbow-delimiters-unmatched-face ((t (:foreground "white" :background "red"))))
-   `(highlight ((t (:foreground "#ff0000" :background "#888"))))
+   `(rainbow-delimiters-depth-2-face ((t (:foreground ,(nth 0 (obvious-parentheses-bracket-colors))))))
+   `(rainbow-delimiters-depth-3-face ((t (:foreground ,(nth 1 (obvious-parentheses-bracket-colors))))))
+   `(rainbow-delimiters-depth-4-face ((t (:foreground ,(nth 2 (obvious-parentheses-bracket-colors))))))
+   `(rainbow-delimiters-depth-5-face ((t (:foreground ,(nth 3 (obvious-parentheses-bracket-colors))))))
+   `(rainbow-delimiters-depth-6-face ((t (:foreground ,(nth 4 (obvious-parentheses-bracket-colors))))))
+   `(rainbow-delimiters-depth-7-face ((t (:foreground ,(nth 5 (obvious-parentheses-bracket-colors))))))
+   `(rainbow-delimiters-depth-8-face ((t (:foreground ,(nth 6 (obvious-parentheses-bracket-colors))))))
+   `(rainbow-delimiters-depth-9-face ((t (:foreground ,(nth 7 (obvious-parentheses-bracket-colors))))))
    ))
 
-
-;;; obvious-delimiters.el ends here
+(provide 'obvious-parentheses)
+;;; obvious-parentheses.el ends here
