@@ -1,4 +1,4 @@
-;;; obvious-delimiters.el --- Making rainbow-delimiters more obvious
+;;; obvious-parentheses.el --- Making rainbow-delimiters more obvious
 
 ;; Copyright (C) 2016 Jacek Podkanski
 ;;
@@ -28,8 +28,6 @@
 (require 'rainbow-delimiters)
 
 (require 'color)
-
-
 
 (defun obvious-parentheses-hsl-to-hex (h s l)
   "Convert H S L to hex colours."
@@ -74,4 +72,5 @@
    ))
 
 (provide 'obvious-parentheses)
+
 ;;; obvious-parentheses.el ends here
