@@ -9,13 +9,13 @@ go to scratch buffer
 type (((((())))))
 
 enable rainbow-delimiters-mode
-M-x colorize-brackets
+M-x obvious-parentheses-colorize
 
 if you like it you can add
-(colorize-brackets)
+(obvious-parentheses-colorize)
 to your Emacs start-up file
 
 ** Deletion
 Once you have tried you can remove with:
 M-x package-delete
-then select obvious-delimiters-0.1
+then select obvious-delimiters-0.11

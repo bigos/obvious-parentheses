@@ -5,7 +5,7 @@
 ;; Author: Jacek Podkanski
 ;; URL: https://github.com/bigos/obvious-parentheses
 ;; Package-Requires: ((emacs "24") (rainbow-delimiters ))
-;; Version: 0.1
+;; Version: 0.11
 ;; Keywords: convenience, usability
 
 ;; This file is not part of GNU Emacs.
