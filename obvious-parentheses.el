@@ -47,11 +47,10 @@
         (setq lightvals (list 0.65 0.55))
       (setq lightvals (list 0.35 0.30)))
 
-    (append
-                 (dolist (n'(.71 .3 .11 .01))
-                   (push (hsl-to-hex (+ n 0.0) 1.0 (nth 0 lightvals)) hexcolors))
-                 (dolist (n '(.81 .49 .17 .05))
-                   (push (hsl-to-hex (+ n 0.0) 1.0 (nth 1 lightvals)) hexcolors)))
+     (dolist (n '(.71 .3 .11 .01))
+       (push (hsl-to-hex (+ n 0.0) 1.0 (nth 0 lightvals)) hexcolors))
+     (dolist (n '(.81 .49 .17 .05))
+       (push (hsl-to-hex (+ n 0.0) 1.0 (nth 1 lightvals)) hexcolors))
     (reverse hexcolors)))
 
 ;;;###autoload
