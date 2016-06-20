@@ -4,7 +4,7 @@
 ;;
 ;; Author: Jacek Podkanski
 ;; URL: https://github.com/bigos/obvious-parentheses
-;; Package-Requires: ((emacs "24") (rainbow-delimiters ""))
+;; Package-Requires: ((emacs "24") (rainbow-delimiters ))
 ;; Version: 0.1
 ;; Keywords: convenience, usability
 
@@ -17,7 +17,7 @@
 ;;; Commentary:
 
 ;; Quick start:
-;; run (colorize-brackets)
+;; run (colorize-brackets) or M-x colorize-brackets
 ;;
 ;; For a detailed introduction see:
 ;; https://github.com/bigos/obvious-parentheses
@@ -46,15 +46,15 @@
         (setq lightvals (list 0.65 0.55))
       (setq lightvals (list 0.35 0.30)))
 
-    (concatenate 'list
+    (append
                  (dolist (n'(.71 .3 .11 .01))
                    (push (hsl-to-hex (+ n 0.0) 1.0 (nth 0 lightvals)) hexcolors))
                  (dolist (n '(.81 .49 .17 .05))
                    (push (hsl-to-hex (+ n 0.0) 1.0 (nth 1 lightvals)) hexcolors)))
     (reverse hexcolors)))
 
-
-(defun colorise-brackets ()
+;;;###autoload
+(defun colorize-brackets ()
   "Apply my own colours to rainbow delimiters."
   (interactive)
   (require 'rainbow-delimiters)
